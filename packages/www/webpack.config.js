@@ -2,10 +2,10 @@ var HtmlWebpackPlugin = require("html-webpack-plugin");
 var path = require("path");
 
 module.exports = {
-  entry: "./src/index.js",
+  entry: "./src/index.tsx",
   output: {
     path: path.resolve(__dirname, "build"),
-    filename: "index.js",
+    filename: "bundle.js",
   },
   module: {
     rules: [
@@ -15,20 +15,14 @@ module.exports = {
       },
 
       {
-        test: /\.m?js$/,
-        exclude: /(node_modules|bower_components)/,
-        use: {
-          loader: "babel-loader",
-          options: {
-            presets: ["@babel/preset-env"],
-            plugins: ["@babel/plugin-transform-runtime"],
-          },
-        },
+        test: /\.tsx?$/,
+        use: "ts-loader",
+        exclude: /node_modules/,
       },
     ],
   },
   resolve: {
-    extensions: ["*", ".js", ".jsx"],
+    extensions: [".tsx", ".ts", ".js"],
   },
   devtool: "inline-source-map",
   plugins: [
