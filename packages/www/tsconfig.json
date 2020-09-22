@@ -1,0 +1,9 @@
+{
+  "extends": "../../tsconfig.json",
+
+  "compilerOptions": {
+    "outDir": "./build" /* Redirect output structure to the directory. */
+  },
+  "include": ["src/**/*"],
+  "exclude": ["node_modules"]
+}

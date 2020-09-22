@@ -1,5 +1,6 @@
 import React from "react";
-import Button from "./components/Button";
+import { Button } from "@ml-school/components/src/Buttons/";
+// import Block from "@ml-school/components/Blocks";
 
 function App() {
   return (
@@ -9,6 +10,7 @@ function App() {
       <p>
         Cant wait to start learning and building at the what do you think time
       </p>
+      {/* <Block /> */}
     </div>
   );
 }
