@@ -4,14 +4,14 @@ import styled from "@emotion/styled";
 
 type ButtonTypes = {
   variant: string;
-  children: string;
+  children: any;
 };
 
 type Btn = {
-  children: string;
+  children: any;
 };
 
-const commonStyles = (props: any) => css`
+export const commonStyles = (props: any) => css`
   border-style: solid;
   border-width: 2px;
   border-color: #01579b;
@@ -28,13 +28,13 @@ const commonStyles = (props: any) => css`
   }
 `;
 
-const PrimaryButton = styled.button<Btn>`
+export const PrimaryButton = styled.button<Btn>`
   ${commonStyles};
   background-color: #01579b;
   color: ${(props: any): string => props.theme.color.SecondaryText};
 `;
 
-const SecondaryButton = styled.button<Btn>`
+export const SecondaryButton = styled.button<Btn>`
   ${commonStyles};
   background-color: transparent;
   color: ${(props: any): string => props.theme.color.SecondaryBackground};
