@@ -10,7 +10,7 @@ export function GlobalStyles(): JSX.Element {
         *,
         *::after,
         *::before {
-          @import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Mono&family=IBM+Plex+Sans:wght@400;600&display=swap");
+          @import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600&family=IBM+Plex+Sans:wght@400;600;700&display=swap");
           padding: 0;
           margin: 0;
           font-family: "IBM Plex Sans", "IBM Plex Mono";

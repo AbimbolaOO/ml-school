@@ -1,12 +1,11 @@
 import React from "react";
-import { css } from "@emotion/core";
 import styled from "@emotion/styled";
 
 const Div = styled.div`
   position: relative;
-  width: 50px;
+  width: 32px;
   height: 4px;
-  background-color: orange;
+  background-color: ${(props: any) => props.theme.color.SecondaryBackground};
   z-index: 1;
   transition: all 0.4s ease;
   &:before,
@@ -16,10 +15,10 @@ const Div = styled.div`
     width: 100%;
     height: 4px;
     background: inherit;
-    top: -10px;
+    top: -8px;
   }
   &:after {
-    top: 10px;
+    top: 8px;
   }
 `;
 
@@ -47,34 +46,29 @@ const CheckedBox = styled.input`
 `;
 
 const Container = styled.div`
-  position: fixed;
-  width: 60px;
-  height: 60px;
+  position: relative;
+  width: 36px;
+  height: 36px;
+  padding: 4px;
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: tomato;
-
+  /* border: 2px solid tomato; */
+  & input[type="checkbox"]:not(checked):hover + div {
+    transform: scaleX(1.1);
+  }
   & input[type="checkbox"]:checked:hover + div {
     transform: rotate(225deg);
   }
 `;
 
-export function HamburgerMenu() {
+export function Hamburger() {
   return (
     <div>
       <Container>
         <CheckedBox type="checkbox" />
         <Div />
       </Container>
-      <div>
-        <ul>
-          <li>item 1</li>
-          <li>item 2</li>
-          <li>item 3</li>
-          <li>item 4</li>
-        </ul>
-      </div>
     </div>
   );
 }
