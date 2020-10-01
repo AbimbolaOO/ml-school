@@ -1,11 +1,11 @@
 import React from "react";
-import { Menu } from "./Menu";
+import { DropDownMenu } from "./DropDown";
 import { MenuList } from "./MenuList";
 
 export default {
   title: "Menu",
-  component: Menu,
+  component: DropDownMenu,
 };
 
-export const Secounday = (): JSX.Element => <Menu />;
+export const DropDown = (): JSX.Element => <DropDownMenu />;
 export const MenuLists = (): JSX.Element => <MenuList />;

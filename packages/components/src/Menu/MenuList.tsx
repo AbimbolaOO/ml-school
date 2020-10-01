@@ -7,14 +7,11 @@ const StyledLink = styled(Link)`
   text-decoration: none;
   color: ${(props: any) => props.theme.color.SecondaryBackground};
   font-weight: 700;
-  /* border: 2px solid teal; */
 `;
 
 const Ul = styled.ul`
-  display: flex;
-  /* border: 2px solid green; */
+  display: inline-flex;
   list-style: none;
-  justify-content: space-between;
   flex-direction: column;
   border-style: solid;
   border-width: 2px;
@@ -23,27 +20,14 @@ const Ul = styled.ul`
 
   position: absolute;
   right: 0px;
-  top: 52px;
-  &:before {
-    content: "";
-    position: absolute;
-    top: -10px;
-    right: 0px;
-    width: 0;
-    height: 0;
+  top: 38px;
 
-    border-bottom: 10px solid
-      ${(props: any) => props.theme.color.SecondaryBackground};
-    border-left: 10px solid transparent;
-    border-right: 10px solid transparent;
-  }
+  visibility: hidden;
 `;
 
 const Li = styled.li`
   position: relative;
   display: flex;
-  color: red;
-  /* border: 2px solid black; */
   padding-left: 0;
 
   width: 100%;
