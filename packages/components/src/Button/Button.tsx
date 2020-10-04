@@ -20,7 +20,7 @@ export const commonStyles = (props: any) => css`
   font-size: 1rem;
   outline: none;
   font-weight: 700;
-  transition: all 0.5s ease;
+  transition: background-color 0.3s ease;
   &:hover {
     cursor: pointer;
     background-color: ${props.theme.color.SecondaryBackgroundDark};

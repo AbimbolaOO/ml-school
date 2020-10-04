@@ -9,6 +9,11 @@ export const parameters = {
 const theme = lightTheme;
 
 export const decorators = [
+  // (Story) => (
+  //   <div style={{ margin: "4em" }}>
+  //     <Story />
+  //   </div>
+  // ),
   (Story) => (
     <ThemeProvider theme={theme}>
       <GlobalStyles />

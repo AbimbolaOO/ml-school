@@ -1,20 +1,19 @@
 import React from "react";
-import { Button } from "../Button";
 import styled from "@emotion/styled";
 import { BrowserRouter as Router, Link } from "react-router-dom";
+
+import { Button } from "../Button";
+import { mq } from "../Themes";
 
 const StyledLink = styled(Link)`
   text-decoration: none;
   color: ${(props: any) => props.theme.color.SecondaryBackground};
   font-weight: 700;
-  /* border: 2px solid teal; */
 `;
 
-const Ul = styled.ul`
+const DropDownList = styled.ul`
   display: flex;
-  /* border: 2px solid green; */
   list-style: none;
-  justify-content: space-between;
   flex-direction: column;
   border-style: solid;
   border-width: 2px;
@@ -23,27 +22,21 @@ const Ul = styled.ul`
 
   position: absolute;
   right: 0px;
-  top: 52px;
-  &:before {
-    content: "";
-    position: absolute;
-    top: -10px;
-    right: 0px;
-    width: 0;
-    height: 0;
+  top: 38px;
 
-    border-bottom: 10px solid
-      ${(props: any) => props.theme.color.SecondaryBackground};
-    border-left: 10px solid transparent;
-    border-right: 10px solid transparent;
+  visibility: hidden;
+
+  ${mq[1]} {
+    visibility: visible;
+    position: static;
+    width: 100%;
+    border: none;
   }
 `;
 
-const Li = styled.li`
+const DropDownListItem = styled.li`
   position: relative;
   display: flex;
-  color: red;
-  /* border: 2px solid black; */
   padding-left: 0;
 
   width: 100%;
@@ -53,33 +46,39 @@ const Li = styled.li`
   &:hover {
     background-color: rgba(0, 0, 0, 0.1);
   }
+
   &:hover:last-child {
     background-color: rgba(0, 0, 0, 0);
+  }
+
+  ${mq[1]} {
+    position: static;
+    justify-content: center;
   }
 `;
 
 export function MenuList() {
   return (
     <Router>
-      <Ul className="menulist">
-        <Li>
+      <DropDownList className="menulist">
+        <DropDownListItem>
           <StyledLink to="/profile">User Name</StyledLink>
-        </Li>
-        <Li>
+        </DropDownListItem>
+        <DropDownListItem>
           <StyledLink to="/courses">Course</StyledLink>
-        </Li>
-        <Li>
+        </DropDownListItem>
+        <DropDownListItem>
           <StyledLink to="/Publications">Publications</StyledLink>
-        </Li>
-        <Li>
+        </DropDownListItem>
+        <DropDownListItem>
           <StyledLink to="/profile">Profile</StyledLink>
-        </Li>
-        <Li>
+        </DropDownListItem>
+        <DropDownListItem>
           <StyledLink to="/signout">
             <Button variant="primary">Sign out</Button>
           </StyledLink>
-        </Li>
-      </Ul>
+        </DropDownListItem>
+      </DropDownList>
     </Router>
   );
 }
