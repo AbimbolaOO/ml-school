@@ -1,30 +1,27 @@
 import React from "react";
 import styled from "@emotion/styled";
+
 import { MenuList } from "./MenuList";
 import { SecondaryButton } from "../Button";
+import { mq } from "../Themes";
 
-const Container = styled.section`
-  display: inline-flex;
-  flex-direction: column;
-  position: relative;
-
-  &:hover .menulist {
+const DropDownButton = styled(SecondaryButton)`
+  &:hover + .menulist {
     visibility: visible;
   }
-`;
-
-const Checked = styled.input`
-  position: absolute;
-  z-index: 100;
-  width: 100%;
-  height: 100%;
+  & + .menulist:hover {
+    visibility: visible;
+  }
+  ${mq[1]} {
+    display: none;
+  }
 `;
 
 export function DropDownMenu() {
   return (
-    <Container>
-      <SecondaryButton>Down</SecondaryButton>
+    <React.Fragment>
+      <DropDownButton>Down</DropDownButton>
       <MenuList />
-    </Container>
+    </React.Fragment>
   );
 }

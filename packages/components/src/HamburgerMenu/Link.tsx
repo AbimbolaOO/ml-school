@@ -1,7 +1,8 @@
 import React from "react";
-import { css } from "@emotion/core";
 import styled from "@emotion/styled";
 import { BrowserRouter as Router, Link } from "react-router-dom";
+
+import { mq } from "../Themes";
 
 type LinkProps = {
   url: string;
@@ -38,6 +39,14 @@ const InternalLink = styled(Link)`
   }
   &:active {
     color: ${(props: any) => props.theme.color.SecondaryBackground};
+  }
+
+  /* Smaller screens */
+  ${mq[1]} {
+    /* Prevent the underline animations */
+    &:before {
+      content: none;
+    }
   }
 `;
 

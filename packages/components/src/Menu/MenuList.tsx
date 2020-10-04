@@ -1,7 +1,9 @@
 import React from "react";
-import { Button } from "../Button";
 import styled from "@emotion/styled";
 import { BrowserRouter as Router, Link } from "react-router-dom";
+
+import { Button } from "../Button";
+import { mq } from "../Themes";
 
 const StyledLink = styled(Link)`
   text-decoration: none;
@@ -9,8 +11,8 @@ const StyledLink = styled(Link)`
   font-weight: 700;
 `;
 
-const Ul = styled.ul`
-  display: inline-flex;
+const DropDownList = styled.ul`
+  display: flex;
   list-style: none;
   flex-direction: column;
   border-style: solid;
@@ -23,9 +25,16 @@ const Ul = styled.ul`
   top: 38px;
 
   visibility: hidden;
+
+  ${mq[1]} {
+    visibility: visible;
+    position: static;
+    width: 100%;
+    border: none;
+  }
 `;
 
-const Li = styled.li`
+const DropDownListItem = styled.li`
   position: relative;
   display: flex;
   padding-left: 0;
@@ -37,33 +46,39 @@ const Li = styled.li`
   &:hover {
     background-color: rgba(0, 0, 0, 0.1);
   }
+
   &:hover:last-child {
     background-color: rgba(0, 0, 0, 0);
+  }
+
+  ${mq[1]} {
+    position: static;
+    justify-content: center;
   }
 `;
 
 export function MenuList() {
   return (
     <Router>
-      <Ul className="menulist">
-        <Li>
+      <DropDownList className="menulist">
+        <DropDownListItem>
           <StyledLink to="/profile">User Name</StyledLink>
-        </Li>
-        <Li>
+        </DropDownListItem>
+        <DropDownListItem>
           <StyledLink to="/courses">Course</StyledLink>
-        </Li>
-        <Li>
+        </DropDownListItem>
+        <DropDownListItem>
           <StyledLink to="/Publications">Publications</StyledLink>
-        </Li>
-        <Li>
+        </DropDownListItem>
+        <DropDownListItem>
           <StyledLink to="/profile">Profile</StyledLink>
-        </Li>
-        <Li>
+        </DropDownListItem>
+        <DropDownListItem>
           <StyledLink to="/signout">
             <Button variant="primary">Sign out</Button>
           </StyledLink>
-        </Li>
-      </Ul>
+        </DropDownListItem>
+      </DropDownList>
     </Router>
   );
 }

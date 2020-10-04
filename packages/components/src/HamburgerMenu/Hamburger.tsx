@@ -1,6 +1,8 @@
 import React from "react";
 import styled from "@emotion/styled";
 
+import { mq } from "../Themes";
+
 const Div = styled.div`
   position: relative;
   width: 32px;
@@ -60,15 +62,23 @@ const Container = styled.div`
   & input[type="checkbox"]:checked:hover + div {
     transform: rotate(225deg);
   }
+  border: 2px solid black;
+  display: none;
+
+  /* Small screens */
+  ${mq[1]} {
+    display: flex;
+    position: absolute;
+    top: 0px;
+    right: 4px;
+  }
 `;
 
 export function Hamburger() {
   return (
-    <div>
-      <Container>
-        <CheckedBox type="checkbox" />
-        <Div />
-      </Container>
-    </div>
+    <Container>
+      <CheckedBox type="checkbox" />
+      <Div />
+    </Container>
   );
 }

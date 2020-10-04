@@ -1,0 +1,7 @@
+FROM alpine
+
+WORKDIR /classrooms
+
+COPY ./ ./
+
+RUN sudo apt-get python3
