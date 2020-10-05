@@ -4,8 +4,7 @@ import { BrowserRouter as Router } from "react-router-dom";
 
 import { Imgs } from "../Assets";
 import { CompanyImage } from "../Image";
-import { Navigation } from "./NavBar";
-import { Hamburger } from "./Hamburger";
+import { Hamburger } from "../HamburgerMenu/Hamburger";
 
 import { mq } from "../Themes";
 
@@ -14,22 +13,11 @@ const Header = styled.header`
   display: flex;
   justify-content: space-between;
   align-items: center;
-
-  /* &:last-child {
-    display: none;
-  } */
-
+  background-color: ${(props: any) => props.theme.color.PrimaryBackground};
   ${mq[1]} {
     position: relative;
-    border: 2px solid black;
-    height: 100vh;
     flex-direction: column;
-    overflow: auto;
   }
-
-  /* & > div > input[type="checkbox"]:not(checked)  {
-    background-color: red;
-  } */
 `;
 
 // Navigation functional component
@@ -38,7 +26,6 @@ export function Headerbar() {
     <Router>
       <Header>
         <CompanyImage src={Imgs.mlSchool} alt="Company's logo" />
-        <Navigation />
         <Hamburger />
       </Header>
     </Router>
