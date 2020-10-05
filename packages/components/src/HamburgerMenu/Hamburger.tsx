@@ -2,7 +2,10 @@ import React from "react";
 import styled from "@emotion/styled";
 
 import { mq } from "../Themes";
+import { Navigation } from "./NavBar";
 
+/* The dive below is use to create the horizontal line in the 
+Hamburger menu */
 const Div = styled.div`
   position: relative;
   width: 32px;
@@ -24,61 +27,69 @@ const Div = styled.div`
   }
 `;
 
+/* Checkbox contain logic for animation Hamburger Icon 
+and navigation menu */
 const CheckedBox = styled.input`
   position: absolute;
   top: 0;
-  left: 0;
+  right: 0;
   z-index: 2;
   cursor: pointer;
-  width: 50px;
-  height: 50px;
+  width: 36px;
+  height: 36px;
   opacity: 0;
+  ${mq[1]} {
+    /* Toggler animation */
+    &:checked + div > div {
+      transform: rotate(135deg);
+    }
 
-  /* Toggler animation */
-  &:checked + div {
-    transform: rotate(135deg);
-  }
-
-  /* this turns lines into x */
-  &:checked + div:before,
-  &:checked + div:after {
-    top: 0;
-    transform: rotate(90deg);
+    /* this turns lines into x */
+    &:checked + div > div:before,
+    &:checked + div > div:after {
+      top: 0;
+      transform: rotate(90deg);
+    }
+    /* Scale lines when hovered */
+    &:not(checked):hover + div > div {
+      transform: scaleX(1.1);
+    }
+    &:checked:hover + div > div {
+      transform: rotate(225deg);
+    }
+    &:not(checked) + div + nav {
+      display: none;
+    }
+    &:checked ~ nav {
+      display: flex;
+    }
   }
 `;
 
+/* Hamburger Icon container */
 const Container = styled.div`
-  position: relative;
+  position: absolute;
+  top: 0;
+  right: 0;
   width: 36px;
   height: 36px;
   padding: 4px;
-  display: flex;
+  display: none;
   justify-content: center;
   align-items: center;
-  /* border: 2px solid tomato; */
-  & input[type="checkbox"]:not(checked):hover + div {
-    transform: scaleX(1.1);
-  }
-  & input[type="checkbox"]:checked:hover + div {
-    transform: rotate(225deg);
-  }
-  border: 2px solid black;
-  display: none;
-
-  /* Small screens */
   ${mq[1]} {
     display: flex;
-    position: absolute;
-    top: 0px;
-    right: 4px;
   }
 `;
 
 export function Hamburger() {
   return (
-    <Container>
+    <React.Fragment>
       <CheckedBox type="checkbox" />
-      <Div />
-    </Container>
+      <Container>
+        <Div />
+      </Container>
+      <Navigation />
+    </React.Fragment>
   );
 }

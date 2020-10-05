@@ -1,14 +1,14 @@
 import React from "react";
 import { Hamburger } from "./Hamburger";
 import { Links } from "./Link";
-import { Headerbar } from "./Headerbar";
+import { Navigation } from "./NavBar";
 
 export default {
-  title: "Header",
-  component: Headerbar,
+  title: "Navigation",
+  component: Navigation,
 };
 
-export const Header = () => <Headerbar />;
+export const Navigate = () => <Navigation />;
 export const HamburgerIcon = () => <Hamburger />;
 export const InternalLink = () => <Links url="about">About page</Links>;
 export const ExternalLink = () => (

@@ -27,8 +27,9 @@ const Navbar = styled.nav`
     flex-direction: column;
     justify-content: space-around;
     flex-grow: 2;
-    border: 2px solid tomato;
     width: 100%;
+    height: 90vh;
+    overflow: auto;
   }
 `;
 
