@@ -1,11 +1,11 @@
 import React from "react";
 import { Button } from "@ml-school/components/src/Button/";
-import { Nav } from "@ml-school/components/src/HamburgerMenu";
+import { Headerbar } from "@ml-school/components/src/Header";
 
 function App() {
   return (
     <div>
-      <Nav />
+      <Headerbar />
       <h1>Welcome to ml school</h1>
       <Button variant="primary"> Test button</Button>
       <p>

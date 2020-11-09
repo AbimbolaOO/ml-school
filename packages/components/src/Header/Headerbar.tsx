@@ -2,7 +2,7 @@ import React from "react";
 import styled from "@emotion/styled";
 import { BrowserRouter as Router } from "react-router-dom";
 
-import { Imgs } from "../Assets";
+import { Imgs } from "../Assets/Imgs";
 import { CompanyImage } from "../Image";
 import { Hamburger } from "../HamburgerMenu/Hamburger";
 

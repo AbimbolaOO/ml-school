@@ -1,4 +1,4 @@
-import mlSchool from "./mlSchool.png";
+import * as mlSchool from "./mlSchool.png";
 
 export const Imgs = {
   mlSchool,
